@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-     maven 'Maven3'
+     maven 'myMaven'
     }
   
     stages {
@@ -20,7 +20,7 @@ pipeline {
         
         stage ('Code Quality') {
         steps {
-            withSonarQubeEnv('My_SonarQube') {
+            withSonarQubeEnv('sonarqube') {
             sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
             }
       }
